@@ -4,35 +4,40 @@ from subprocess import *
 from django import forms
 
 inicio = True
-principalub= ""
+dondestoy= "/raiz"
 
 def home(request):
     ubicacion= getoutput("pwd")
     return render(request, "index.html",{"ubicacion": ubicacion})
 
 def crear(request):
-    try:
-        os.chdir(getoutput("pwd")+"/raiz")
-    except:
-        mensaje="quetal"
-
+    ubi(dondestoy)
     try:
         tipo= request.GET["tipo"]
+        nombre= request.GET["nombre"]
         if tipo == "carpeta":
-            nombre= request.GET["nombre"]
             os.system(f"mkdir {nombre}")
-            mensaje="holi"
+            aviso="La carpeta ha sido creada."
         else:
             os.system(f"touch {nombre}")
+            aviso="La carpeta ha sido creada."
     except:
-        mensaje="problemas"
-
+        aviso=""
 
     ubicacion= getoutput("pwd")
-    return render(request,"Crear.html",{"ubicacion":ubicacion,"mensaje":mensaje})
+    return render(request,"Crear.html",{"ubicacion":ubicacion,"aviso":aviso})
 
 def borrar(request):
-    return render(request,"Borrar.html")
+    ubi(dondestoy)
+    try:
+        nombre= request.GET["nombre"]
+        os.system(f"rm -r {nombre}")
+        aviso="Ha sido elimida con exito."
+    except:
+        aviso=""
+
+    ubicacion= getoutput("pwd")
+    return render(request,"Borrar.html",{"ubicacion":ubicacion,"aviso":aviso})
 
 def copiar(request):
     return render(request,"copiar.html")
@@ -52,3 +57,21 @@ def cambiarPermisos(request):
 def cambiarPropietario(request):
     return render(request,"CambiarPropietario.html")
 
+
+def ubi(carpetaName):
+      try:
+        os.chdir(getoutput("pwd")+carpetaName)
+    except:
+        mensaje="No existe el directorio"
+
+def abrir(request):
+    try:
+        nombre=request.GET['carpeta']
+        global dondestoy
+        dondestoy= dondestoy+"/"+nombre
+        ubi(dondeestoy)
+    except:
+        mensaje="Carpeta prohibida"
+    ubicacion= getoutput("pwd")
+    #codigo de mostrar carpetas
+    return render(render,"index.html", {"ubicacion":ubicacion})
