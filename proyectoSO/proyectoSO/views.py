@@ -59,7 +59,7 @@ def cambiarPropietario(request):
 
 
 def ubi(carpetaName):
-    try:
+      try:
         os.chdir(getoutput("pwd")+carpetaName)
     except:
         mensaje="No existe el directorio"
