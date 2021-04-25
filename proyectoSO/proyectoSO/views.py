@@ -52,14 +52,29 @@ def verPermisos(request):
     return render(request,"VerPermisos.html")
 
 def cambiarPermisos(request):
-    return render(request,"CambiarPermisos.html")
+    ubi(dondestoy)
+    try:
+        tipo = request.POST["tipo"]
+        permisos= request.POST["permisos"]
+        nombre= request.POST["nombre"]
+        if tipo == "carpeta":
+            so.system(f"sudo chmod {permisos} -R {nombre}")
+        else:
+            so.system(f"sudo chmod {permisos} {nombre}")
+
+        aviso="Se han cambiado los permisos con exito"
+    except:
+        aviso="Hay una falla"
+
+    ubicacion= getoutput("pwd")
+    return render(request,"CambiarPermisos.html",{"ubicacion":ubicacion,"aviso": aviso})
 
 def cambiarPropietario(request):
     return render(request,"CambiarPropietario.html")
 
 
 def ubi(carpetaName):
-      try:
+    try:
         os.chdir(getoutput("pwd")+carpetaName)
     except:
         mensaje="No existe el directorio"
