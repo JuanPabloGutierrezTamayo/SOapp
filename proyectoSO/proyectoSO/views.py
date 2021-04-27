@@ -60,21 +60,22 @@ def borrar(request):
     return render(request,"Borrar.html",{"ubicacion":ubicacion,"aviso":aviso})
 
 def copiar(request):
+    
     try:
       tipo= request.GET["tipo"]
       archivo= request.GET["ubA"]
       destino= request.GET["ubB"]
 
       if tipo == "carpeta":
-        os.system(f"cd -r {archivo}/ + {destino}")
+        os.system(f"cp -r {archivo}/ {destino}")
         mensaje="carpeta copiada con exito"
       else:
-        os.system(f"cd {archivo} {destino}")
+        os.system(f"cp {archivo} {destino}")
         mensaje="archivo copiado con exito"
     except:
       mensaje = ""
-
     ubicacion = getoutput("pwd")
+    
     return render(request, "Copiar.html", {"ubicacion": ubicacion, "mensaje": mensaje})
 
 def renombrar(request):

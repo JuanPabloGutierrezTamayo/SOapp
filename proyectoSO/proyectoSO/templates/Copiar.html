@@ -2,8 +2,8 @@
 
 {% block content %}
 <br>
-<h1 style="font-size: 30px">Datos para copiar  archivo</h1>
-
+<h1 style="font-size: 30px">Datos para copiar archivo</h1>
+<h2 style="font-size: 15px">Si el archivo o carpeta a copiar está en la ruta actual, solo poniendo el nombre es suficiente </h2>
 <form action="/copiar/" method="GET">
     <div class="form-row">
       <div class="input-group mb-3">
@@ -14,8 +14,8 @@
             <option value="archivo">Archivo</option>
           </select>
       </div>
-        <label for="label1">Nombre de carpeta o archivo: <input type="text"  value="viejo"  class="form-control" name="ubA" id="label1" aria-describedby="emailHelp"></label>
-        <label for="label2">Ubicación a copiar: <input type="text"  value="nuevo"  class="form-control" name="ubB" id="label2" aria-describedby="emailHelp"></label>
+        <label for="label1">Ubicacion	de la carpeta/archivo: <input type="text"  value="ruta archivo"  class="form-control" name="ubA" id="label1" aria-describedby="emailHelp"></label>
+        <label for="label2">Ubicación a copiar: <input type="text"  value="Destino"  class="form-control" name="ubB" id="label2" aria-describedby="emailHelp"></label>
       </div>
         <button type="submit" class="btn btn-primary">Copiar</button>
 </form>
