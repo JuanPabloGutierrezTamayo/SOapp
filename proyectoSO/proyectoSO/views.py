@@ -7,7 +7,7 @@ inicio = True
 dondestoy= "/raiz"
 
 def home(request):
-    ubi(dondestoy)
+    #ubi(dondestoy)
     ubicacion= getoutput("pwd")
     iconos1 = mostrar_archivos()
     iconos2 = mostrar_carpetas()
@@ -31,7 +31,7 @@ def mostrar_carpetas():
     return carpetas2
 
 def crear(request):
-    ubi(dondestoy)
+    #ubi(dondestoy)
     try:
         tipo= request.GET["tipo"]
         nombre= request.GET["nombre"]
@@ -48,7 +48,7 @@ def crear(request):
     return render(request,"Crear.html",{"ubicacion":ubicacion,"aviso":aviso})
 
 def borrar(request):
-    ubi(dondestoy)
+    #ubi(dondestoy)
     try:
         nombre= request.GET["nombre"]
         os.system(f"rm -r {nombre}")
@@ -72,7 +72,7 @@ def verPermisos(request):
     return render(request,"VerPermisos.html")
 
 def cambiarPermisos(request):
-    ubi(dondestoy)
+    #ubi(dondestoy)
     try:
         tipo = request.POST["tipo"]
         permisos= str(request.POST["permisos"])
@@ -107,7 +107,7 @@ def abrir(request):
         nombre=request.GET['carpeta']
         global dondestoy
         dondestoy= dondestoy+"/"+nombre
-        ubi(dondeestoy)
+        #ubi(dondeestoy)
     except:
         mensaje="Carpeta prohibida"
     ubicacion= getoutput("pwd")

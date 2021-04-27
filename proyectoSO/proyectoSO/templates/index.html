@@ -65,20 +65,20 @@
     <br>
     {% block content %}{% endblock %}
 
-<!--
+
     <div class="tab-content">
-        <div class="tab-pane fade in active raiz">
+        
             <div class="row">
                 {% for b in carpetas2 %}
                     <div class="col-sm-3">
-                        <ion-icon name="document-outline"></ion-icon>
+                        <img src="iconos/carpetaXD.png" class="Archiv"></img>
                         <p class="titulo">{{ b }} </p>
                     </div>
                 {% endfor %}
                 
                 {% for a in archivos2 %}
                     <div class="col-sm-3">
-                        <ion-icon name="document-outline"></ion-icon>
+                        <img src="iconos/fileXD.png" class="Archiv"></img>
                         <p class="titulo">{{ a }} </p>
                     </div>
                 {% endfor %}
@@ -86,17 +86,9 @@
         </div>
 
     </div>
--->
 
 
-    <div class="row">
-        {% for b in carpetas2 %}
-        <div class="col d-flex justify-content-center flex-column align-items-center">
-            <img src="/iconos/carpeta.png" class="archiv"></img>
-            <label>{{ b }}</label>
-        </div>
-        {% endfor %}
-    </div>
+
 
 <!--
 <hr style="height: 5px; background: black"/>-->
