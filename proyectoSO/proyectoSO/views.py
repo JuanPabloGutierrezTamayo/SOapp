@@ -60,6 +60,14 @@ def borrar(request):
     return render(request,"Borrar.html",{"ubicacion":ubicacion,"aviso":aviso})
 
 def copiar(request):
+  try:
+    tipo = request.GET["tipo"]
+    archivo= request.GET["ubA"]
+    destino= request.GET["ubB"]
+
+  except:
+
+
     return render(request,"copiar.html")
 
 def renombrar(request):

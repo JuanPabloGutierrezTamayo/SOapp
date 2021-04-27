@@ -2,15 +2,22 @@
 
 {% block content %}
 <br>
-<h1 style="font-size: 30px">Datos para crear archivo</h1>
+<h1 style="font-size: 30px">Datos para copiar  archivo</h1>
 
 <form action="/copiar/" method="GET">
     <div class="form-row">
-            <label for="exampleInputEmail1">Ubicación actual: <input type="text"  value="viejo"  class="form-control" name="ubA" id="exampleInputEmail1" aria-describedby="emailHelp"></label>
-            <label for="exampleInputEmail1">Ubicación a copiar: <input type="text"  value="nuevo"  class="form-control" name="ubC" id="exampleInputEmail1" aria-describedby="emailHelp"></label>
-        </div>
-        <button type="submit" class="btn btn-primary">Borrar</button>
-    </div>
+      <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+          <select name="tipo" class="form-select" id="inputGroupSelect01">
+            <option selected>Elegir...</option>
+            <option value="carpeta">Carpeta</option>
+            <option value="archivo">Archivo</option>
+          </select>
+      </div>
+        <label for="label1">Ubicación actual: <input type="text"  value="viejo"  class="form-control" name="ubA" id="label1" aria-describedby="emailHelp"></label>
+        <label for="label2">Ubicación a copiar: <input type="text"  value="nuevo"  class="form-control" name="ubB" id="label2" aria-describedby="emailHelp"></label>
+      </div>
+        <button type="submit" class="btn btn-primary">Copiar</button>
 </form>
 
 <br>
