@@ -4,7 +4,7 @@
 <br>
 <h1 style="font-size: 30px">Datos para crear archivo</h1>
 
-<form action="/cambiarPermisos/" method="POST">
+<form action="/cambiarPermisos/" method="POST">{% csrf_token %}
   <div class="form-row">
     <div class="form-group col-auto">
       <div class="input-group mb-3">
@@ -17,7 +17,7 @@
       </div>
       <label for="Label1">Nombre: <input type="text" class="form-control" name="nombre" id="Label1"
           aria-describedby="emailHelp"></label>
-      <label for="Label2">Permisos: <input type="text" name="XYZ" class="form-control" name="permisos" id="Label2"
+      <label for="Label2">Permisos: <input type="text" value="XYZ" class="form-control" name="permisos" id="Label2"
           aria-describedby="emailHelp"></label>
 
     </div>
