@@ -1,19 +1,19 @@
 from django.contrib import admin
 from django.urls import path
-from proyectoSO import views
+from .views import *
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.home, name="home"),
-    path('crear/', views.crear, name="crear"),
-    path('borrar/', views.borrar, name="borrar"),
-    path('copiar/', views.copiar, name="copiar"),
-    path('mover/', views.mover, name="mover"),
-    path('verPermisos/', views.verPermisos, name="verPermisos"),
-    path('cambiarPermisos/', views.cambiarPermisos, name="cambiarPermisos"),
-    path('renombrar/', views.renombrar, name="renombrar"),
-    path('cambiarPropietario/', views.cambiarPropietario, name="cambiarPropietario"),
+    path('', home, name="home"),
+    path('crear/', crear, name="crear"),
+    path('borrar/', borrar, name="borrar"),
+    path('copiar/', copiar, name="copiar"),
+    path('mover/', mover, name="mover"),
+    path('verPermisos/', verPermisos, name="verPermisos"),
+    path('cambiarPermisos/', cambiarPermisos, name="cambiarPermisos"),
+    path('renombrar/', renombrar, name="renombrar"),
+    path('cambiarPropietario/', cambiarPropietario, name="cambiarPropietario"),
     path('admin/', admin.site.urls),
 ]
 
