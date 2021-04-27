@@ -67,8 +67,8 @@ def copiar(request):
 
   except:
 
-
-    return render(request,"copiar.html")
+    ubicacion = getoutput("pwd")
+    return render(request,"Copiar.html",{"ubicacion":ubicacion})
 
 def renombrar(request):
     return render(request,"Renombrar.html")
