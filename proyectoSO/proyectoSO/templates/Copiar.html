@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<br>
+<h1 style="font-size: 30px">Datos para copiar</h1>
+<form action="/copiar/" method="GET">
+    <div class="form-row">
+      <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+          <select name="tipo" class="form-select" id="inputGroupSelect01">
+            <option selected>Elegir...</option>
+            <option value="carpeta">Carpeta</option>
+            <option value="archivo">Archivo</option>
+          </select>
+      </div>
+        <label for="label1">Ubicacion de la carpeta/archivo: <input type="text"  value="ruta archivo"  class="form-control" name="ubA" id="label1" aria-describedby="emailHelp"></label>
+        <label for="label2">Ubicación a copiar: <input type="text"  value="Destino"  class="form-control" name="ubB" id="label2" aria-describedby="emailHelp"></label>
+      </div>
+        <button type="submit" class="btn btn-primary">Copiar</button>
+</form>
+
+<br>
+<h3>{{ mensaje }}</h3>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h2>Datos para crear</h2>
+
+<form action="/crear/" method="GET">
+    <div class="form-row">
+        <div class="form-group col-auto">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+                <select name="tipo" class="form-select" id="inputGroupSelect01">
+                  <option selected>Elegir...</option>
+                  <option value="carpeta">Carpeta</option>
+                  <option value="archivo">Archivo</option>
+                </select>
+              </div>
+            <label for="exampleInputEmail1">Nombre</label>
+            <input type="text" placeholder="Ingrese el nombre..."  class="form-control" name="nombre" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <button type="submit" class="btn btn-primary">Crear</button>
+    </div>
+</form>
+
+<br>
+<h3>{{ aviso }}</h3>
+{% endblock %}

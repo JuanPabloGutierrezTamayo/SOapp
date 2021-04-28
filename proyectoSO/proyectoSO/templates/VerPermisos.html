@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+
+
+
+{% block content %}
+
+<br>
+
+<h1 style="font-size: 30px">Datos para ver permisos</h1>
+
+
+
+<form action="/verPermisos/" method="GET">
+
+  <div class="form-row">
+
+    <div class="form-group col-auto">
+
+      <div class="input-group mb-3">
+
+        <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+
+        <select name="tipo" class="form-select" id="inputGroupSelect01">
+
+          <option selected>Elegir...</option>
+
+          <option value="carpeta">Carpeta</option>
+
+          <option value="archivo">Archivo</option>
+
+        </select>
+
+      </div>
+
+      <label for="Label1">Nombre: <input type="text" class="form-control" name="nombre" id="Label1"
+          aria-describedby="emailHelp"></label>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ver</button>
+
+  </div>
+
+</form>
+
+
+
+<br>
+
+<h5>{{ aviso }}</h5>
+
+{% endblock %}
