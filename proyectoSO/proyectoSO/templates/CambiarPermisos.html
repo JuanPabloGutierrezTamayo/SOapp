@@ -1,0 +1,57 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<ul class="nav nav-pills">
+  <li class="active" style="background-color:white ;"><a data-toggle="pill" href="#forms">Datos</a></li>
+  <li><a data-toggle="pill" href="#instr">Instrucciones</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="forms" class="tab-pane fade in active">
+      <h2>Datos para cambiar permisos</h2>
+      <form action="/cambiarPermisos/" method="POST">{% csrf_token %}
+          <div class="form-row">
+              <div class="form-group col-auto">
+                  <div class="input-group mb-3">
+                      <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+                      <select name="tipo" class="form-select" id="inputGroupSelect01">
+                          <option selected>Elegir...</option>
+                          <option value="carpeta">Carpeta</option>
+                          <option value="archivo">Archivo</option>
+                      </select>
+                  </div>
+                  <label for="Label1">Nombre archivo/carpeta: <input type="text" class="form-control"
+                          name="nombre" id="Label1" aria-describedby="emailHelp"></label>
+                  <label for="Label2">Permisos: <input type="text" placeholder="XYZ" class="form-control"
+                          name="permisos" id="Label2" aria-describedby="emailHelp"></label>
+              </div>
+              <button type="submit" class="btn btn-primary">Cambiar</button>
+          </div>
+      </form>
+      <br>
+
+      <div class="alert alert-success" style="{{ propiedad }}" role="alert">{{ aviso }}</div>
+  </div>
+  <div id="instr" class="tab-pane fade">
+      <p style="font-size: 12px;" class="">Para cambiar los permisos es necesario ingresar un número de tres (3) cifras,
+          el cual hace referencia a los permisos de propietario|grupo_propietario|otros
+          sobre el archivo o directorio. Cada cifra debe ser un número del 0 al 7,
+          donde cada uno significa lo siguiente:</p>
+      <p style="font-size: 12px;">0 -> Ningún permiso</p>
+      <p style="font-size: 12px;">1 -> Ejecución</p>
+      <p style="font-size: 12px;">2 -> Escritura</p>
+      <p style="font-size: 12px;">3 -> Escritura y ejecución</p>
+      <p style="font-size: 12px;">4 -> Lectura</p>
+      <p style="font-size: 12px;">5 -> Lectura y ejecución</p>
+      <p style="font-size: 12px;">6 -> Lectura y escritura</p>
+      <p style="font-size: 12px;">7 -> Lectura, escritura y ejecución</p>
+
+      <p style="font-size: 12px;">En la ruta a copiar es necesario ingresar la ruta absoluta ( /home/dir1/arc1 )</p>
+      <p style="font-size: 12px;">
+        Así, por ejemplo, el número 432 significa que se le asigna el permiso de Lectura
+al propietario, los permisos de Escritura y ejecución al grupo del propietario
+y el permiso de Escritura a los demás usuarios.
+      </p>
+  </div>
+</div>
+{% endblock %}

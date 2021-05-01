@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<ul class="nav nav-pills">
+    <li class="active" style="background-color:white ;"><a data-toggle="pill" href="#forms">Datos</a></li>
+    <li><a data-toggle="pill" href="#instr">Instrucciones</a></li>
+</ul>
+<div class="tab-content">
+    <div id="forms" class="tab-pane fade in active">
+        <h2>Datos para mover</h2>
+        <form action="/mover/" method="GET">
+            <div class="form-row">
+                <div class="form-group col-auto">
+                    <label for="exampleInputEmail1">Nombre archivo/carpeta: <input type="text" class="form-control"
+                            name="nombre" id="exampleInputEmail1" aria-describedby="emailHelp"></label>
+                    <label for="exampleInputEmail2">Ubicación a mover: <input type="text" class="form-control"
+                            name="ubicacion" id="exampleInputEmail2" aria-describedby="emailHelp"></label>
+                </div>
+                <button type="submit" class="btn btn-primary">Mover</button>
+            </div>
+        </form>
+        <br>
+        <div class="alert alert-success" style="{{ propiedad }}" role="alert">{{ aviso }}</div>
+    </div>
+    <div id="instr" class="tab-pane fade">
+        <p>Si se desea mover un archivo o carpeta de la ruta actual, basta con solo ingresar el nombre,
+            en caso contrario ingresar la ruta absoluta del archivo</p>
+        <p>Por ejemplo:</p>
+        <ul>
+            <li><strong>Al ingresar la ruta absoulta de una carpeta:</strong> /home/dir1/carpeta</li>
+            <li><strong>Al ingresar la ruta absoulta de un archivo:</strong> /home/dir1/archivo.txt</li>
+        </ul>
+        <p>En la ruta a mover es necesario ingresar la ruta absoluta ( /home/dir1/arc1 )</p>
+    </div>
+</div>
+{% endblock %}
