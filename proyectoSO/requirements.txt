@@ -1,3 +1,0 @@
-Django
-django-rest-framework
-django-webpack-loader
